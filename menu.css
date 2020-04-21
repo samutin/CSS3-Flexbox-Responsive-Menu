@@ -1,0 +1,107 @@
+.container {
+  max-width: 1200px;
+  flex: 1 1 1200px;
+  margin: 0 auto;
+  margin: 0 15px; }
+  @media screen and (max-width: 992px) {
+    .container {
+      flex: 1 1 100%;
+      margin: 0 15px; } }
+
+html {
+  font-size: 16px; }
+
+body {
+  padding: 0;
+  margin: 0; }
+
+.menu {
+  display: flex;
+  position: relative;
+  width: 100%;
+  background-color: #222; }
+
+.menu__container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 15px; }
+  @media screen and (max-width: 992px) {
+    .menu__container {
+      flex-direction: column;
+      padding: 0; } }
+
+.menu__item {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 20%;
+  padding: 0;
+  transition: 200ms; }
+  .menu__item > .link {
+    padding: 15px 40px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #EEE;
+    text-decoration: none; }
+  .menu__item:hover {
+    background-color: #333; }
+  .menu__item:hover > .menu__sub-menu {
+    height: auto;
+    opacity: 1;
+    z-index: 10; }
+  @media screen and (max-width: 992px) {
+    .menu__item {
+      width: 100%; }
+      .menu__item:hover {
+        background-color: #222; } }
+
+.menu__sub-menu {
+  top: 56px;
+  left: 0;
+  position: absolute;
+  opacity: .9;
+  z-index: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  height: 0;
+  width: 100%;
+  background-color: #333;
+  transition: opacity 200ms ease-out; }
+  @media screen and (max-width: 992px) {
+    .menu__sub-menu {
+      position: static; } }
+
+.menu__sub-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 15px; }
+
+.menu__sub-item {
+  display: flex;
+  flex-basis: 33.333%; }
+  @media screen and (max-width: 992px) {
+    .menu__sub-item {
+      flex-basis: 50%; } }
+  @media screen and (max-width: 600px) {
+    .menu__sub-item {
+      flex-basis: 100%; } }
+  .menu__sub-item > .link {
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+    font-size: 1rem;
+    color: #EEE;
+    text-decoration: none; }
+    @media screen and (max-width: 992px) {
+      .menu__sub-item > .link {
+        padding: 15px; } }
+
+/*# sourceMappingURL=menu.css.map */
