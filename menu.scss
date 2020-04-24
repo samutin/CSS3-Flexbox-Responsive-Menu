@@ -1,9 +1,10 @@
+$menu-hide-size: 820px;
 // Служебные блоки
 
 .container{
 	max-width: 1200px;
 	margin: 0 auto;
-	@media screen and (max-width: 992px) {
+	@media screen and (max-width: $menu-hide-size) {
 		margin: 0 15px;
 	}
 }
@@ -18,33 +19,42 @@ body{
 
 .menu{
 	position: relative;
-	
 	width: 100%;
+	min-height: 58px;
 	background-color: #222;
 }
 .menu__container{
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
+	justify-content: stretch;
 	align-items: center;
 	padding: 0;
-	margin: 0;
 	
-	@media screen and (max-width: 992px) {
+	@media screen and (max-width: $menu-hide-size) {
+		margin: 0;
 		flex-direction: column;
+		overflow: hidden;
+		max-height: 0;
+		transition: max-height .4s ease-in-out;
+	}
+}
+.menu__container.menu__container_active{
+	display: flex;
+	@media screen and (max-width: $menu-hide-size) {
+		transition: max-height .8s ease-in;
+		max-height: 2000px;
 	}
 }
 .menu__item{
 	display: flex;
 	flex-direction: column;
-
+	flex: 1 1;
 	padding: 0;
-	
 	transition: 200ms;
 	
 	>.link{
 		padding: 15px 40px;
-		
+		flex: 1 1 100%;
 		font-family: 'Montserrat', sans-serif;
 		text-align: center;
 		font-size: 1.4rem;
@@ -56,7 +66,7 @@ body{
 	&:hover{ background-color: #333; };
 	&:hover>.menu__sub-menu{height: auto; opacity: 1; z-index: 10;};
 	
-	@media screen and (max-width: 992px) {
+	@media screen and (max-width: $menu-hide-size) {
 		width: 100%;
 		&:hover{ background-color: #222; };
 	}
@@ -69,36 +79,86 @@ body{
 	overflow: hidden;
 	opacity: .9;
 	z-index: 0;
-	
 	height: 0;
 	width: 100%;
 	background-color: #333;
-	
 	transition: opacity 200ms ease-out;
 
-	@media screen and (max-width: 992px) { position: static; }
+	@media screen and (max-width: $menu-hide-size) { position: static; }
 }
 .menu__sub-container{
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	
 	padding: 15px;
 }
 .menu__sub-item{
 	display: flex;
 	flex-basis: 33.333%;
-	@media screen and (max-width: 992px) { flex-basis: 50%; }
-	@media screen and (max-width: 600px) { flex-basis: 100%; }
+	
+	@media screen and (max-width: $menu-hide-size) { flex-basis: 50%; }
+	@media screen and (max-width: 500px) { flex-basis: 100%; }
 
 	>.link{
 		padding: 10px;
-		@media screen and (max-width: 992px) { padding: 15px; }
+		@media screen and (max-width: $menu-hide-size) { padding: 15px; }
 		font-family: 'Montserrat', sans-serif;
 		text-align: left;
 		font-size: 1rem;
 		color: #EEE;
 		text-decoration: none;
+	}
+}
+
+.menu__icon-wrapper {
+	position: absolute;
+	background: #801818;
+	width: 58px;
+	height: 58px;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	z-index: 10;
+	border-bottom-right-radius: 5px;
+	@media screen and (max-width: $menu-hide-size) { display: flex; }
+}
+.menu__icon {
+	position: relative;
+	width: 30px;
+	height: 5px;
+	background-color: #fff;
+	&::before {
+		position: absolute;
+		left: 0;
+		top: -10px;
+		content: '';
+		width: 30px;
+		height: 5px;
+		background-color: #fff;
+		transition: transform .2s ease-in, top .2s linear .2s;
+	}
+	&::after {
+		position: absolute;
+		left: 0;
+		top: 10px;
+		content: '';
+		width: 30px;
+		height: 5px;
+		background-color: #fff;
+		transition: transform .2s ease-in, top .2s linear .2s;
+	}
+}
+.menu__icon.menu__icon_active {
+	background-color: transparent;
+	&::before {
+		transform: rotate(45deg);
+		top: 0;
+		transition: top .2s linear, transform .2s ease-in .2s;
+	}
+	&::after {
+		transform: rotate(-45deg);
+		top: 0;
+		transition: top .2s linear, transform .2s ease-in .2s;
 	}
 }

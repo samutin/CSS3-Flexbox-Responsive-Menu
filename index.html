@@ -4,20 +4,20 @@
 	<meta charset="UTF-8">
 	<title>CSS3 Flexbox Menu</title>
 	<meta name="description" content="Горизонтальное двухуровневое CSS3 меню на Flexbox во всю ширину экрана"> 
-
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
-
 	<link rel="stylesheet" href="menu.css">
-
 	<meta name="viewport" content="width=device-width">
 </head>
 <body>
 	<header class="header">
 		<div class="top"><div class="container"></div></div>
 		<nav class="menu">
+			<div class="menu__icon-wrapper">
+				<div class="menu__icon"></div>
+			</div>
 			<ul class="container menu__container">
 				<li class="menu__item">
-					<a href="" class="link">Каталог</a>
+					<a href="#" class="link">Каталог</a>
 					<div class="menu__sub-menu"><ul class="container menu__sub-container">
 							<li class="menu__sub-item"><a href="" class="link">Роботы</a></li>
 							<li class="menu__sub-item"><a href="" class="link">Готовые решения</a></li>
@@ -29,7 +29,7 @@
 					</ul></div>
 				</li>
 				<li class="menu__item">
-					<a href="" class="link">Сервис</a>
+					<a href="#" class="link">Сервис</a>
 					<div class="menu__sub-menu"><ul class="container menu__sub-container">
 						<li class="menu__sub-item"><a href="" class="link">Интеграция и наладка</a></li>
 						<li class="menu__sub-item"><a href="" class="link">Service 360 и продление гарантии</a></li>
@@ -44,5 +44,12 @@
 			</ul>
 		</nav>
 	</header>
+
+<script type="text/javascript">
+document.querySelector('.menu__icon-wrapper').onclick = function() {
+	document.querySelector('.menu__icon').classList.toggle('menu__icon_active');
+	document.querySelector('.menu__container').classList.toggle('menu__container_active');
+}
+</script>
 </body>
 </html>
