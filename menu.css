@@ -1,11 +1,8 @@
 .container {
   max-width: 1200px;
-  flex: 1 1 1200px;
-  margin: 0 auto;
-  margin: 0 15px; }
+  margin: 0 auto; }
   @media screen and (max-width: 992px) {
     .container {
-      flex: 1 1 100%;
       margin: 0 15px; } }
 
 html {
@@ -16,28 +13,24 @@ body {
   margin: 0; }
 
 .menu {
-  display: flex;
   position: relative;
   width: 100%;
   background-color: #222; }
 
 .menu__container {
-  margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  padding: 0 15px; }
+  padding: 0;
+  margin: 0; }
   @media screen and (max-width: 992px) {
     .menu__container {
-      flex-direction: column;
-      padding: 0; } }
+      flex-direction: column; } }
 
 .menu__item {
   display: flex;
   flex-direction: column;
-  flex: 1 1 20%;
   padding: 0;
   transition: 200ms; }
   .menu__item > .link {
@@ -61,13 +54,13 @@ body {
         background-color: #222; } }
 
 .menu__sub-menu {
-  top: 56px;
+  top: 58px;
   left: 0;
   position: absolute;
-  opacity: .9;
-  z-index: 0;
   box-sizing: border-box;
   overflow: hidden;
+  opacity: .9;
+  z-index: 0;
   height: 0;
   width: 100%;
   background-color: #333;
@@ -81,7 +74,6 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 0 auto;
   padding: 15px; }
 
 .menu__sub-item {
